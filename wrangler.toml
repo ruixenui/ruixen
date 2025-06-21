@@ -1,0 +1,13 @@
+name = "my-worker"
+type = "javascript"  # or "module" for ESModules
+
+account_id = "your_account_id"
+workers_dev = true
+main = "dist/index.js"
+
+[build]
+command = "bun run build"
+upload = { dir = "./dist" }
+
+[env.preview]
+name = "my-worker-preview"
