@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
         "dev": "next dev --turbo",
-        "build": "bun build src/index.ts --outdir dist",
+        "build": "bun build worker.ts --outdir dist",
         "start": "next start",
         "lint": "next lint"
     },

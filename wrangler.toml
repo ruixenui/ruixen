@@ -2,11 +2,11 @@ name = "ruixen"
 type = "module"
 account_id = "8295318475ba63f2e236f8b35d3682c1"
 workers_dev = true
-main = "./dist/index.js"
+main = "./dist/worker.js"
 
 [build]
 command = "bun run build"
-upload = { dir = "./dist", main = "./index.js" }
+upload = { dir = "./dist", main = "./worker.js" }
 
 [env.preview]
 name = "ruixen-preview"
