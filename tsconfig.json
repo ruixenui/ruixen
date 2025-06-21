@@ -1,0 +1,53 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": [
+        "./*"
+      ],
+      // "@/components/ruixenui /*": [
+      //   "./components/ruixenui /block/*",
+      //   "./components/ruixenui /pricing/*",
+      //   "./components/ruixenui /alert/*",
+      //   "./components/ruixenui/button/*",
+      //   "./components/ruixenui/input/*",
+      //   "./components/ruixenui/card/*",
+      //   "./components/ruixenui/text/*",
+      //   "./components/ruixenui/ai-input/*",
+      //   "./components/ruixenui/faq/*",
+      //   "./components/ruixenui/list/*",
+      //   "./components/ruixenui/profile/*"
+      // ]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+, "next.config.mjs", "content/docs/components/cards.mdx", "content/docs/components/faq.mdx"  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
