@@ -1,12 +1,8 @@
 name = "ruixen"
-type = "module"
+compatibility_date = "2023-12-01"
 account_id = "8295318475ba63f2e236f8b35d3682c1"
 workers_dev = true
-main = "./dist/worker.js"
-
-[build]
-command = "bun run build"
-upload = { dir = "./dist", main = "./worker.js" }
+main = "worker.ts"
 
 [env.preview]
 name = "ruixen-preview"
