@@ -1,7 +1,6 @@
 name = "ruixen"
-type = "javascript"  # or "module" if you're using ESModules
-
-account_id = "your_actual_cloudflare_account_id"  # Get this from Cloudflare dashboard
+type = "javascript"  # use "module" if using ESModules (import/export)
+account_id = "8295318475ba63f2e236f8b35d3682c1"
 workers_dev = true
 main = "dist/index.js"
 
