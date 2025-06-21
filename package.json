@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
         "dev": "next dev --turbo",
-        "build": "bun build worker.ts --outdir dist --target browser",
+        "build": "next build",
         "start": "next start",
         "lint": "next lint"
     },
