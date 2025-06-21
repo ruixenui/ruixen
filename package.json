@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
         "dev": "next dev --turbo",
-        "build": "wrangler build",
+        "build": "bun build worker.ts --outdir dist --target browser",
         "start": "next start",
         "lint": "next lint"
     },
