@@ -1,7 +1,7 @@
-name = "my-worker"
-type = "javascript"  # or "module" for ESModules
+name = "ruixen"
+type = "javascript"  # or "module" if you're using ESModules
 
-account_id = "your_account_id"
+account_id = "your_actual_cloudflare_account_id"  # Get this from Cloudflare dashboard
 workers_dev = true
 main = "dist/index.js"
 
@@ -10,4 +10,4 @@ command = "bun run build"
 upload = { dir = "./dist" }
 
 [env.preview]
-name = "my-worker-preview"
+name = "ruixen-preview"
