@@ -1,5 +1,5 @@
 {
-    "name": "ruixen-ui",
+    "name": "kokonut-ui",
     "version": "0.1.0",
     "private": true,
     "scripts": {
@@ -65,8 +65,7 @@
         "@types/node": "^20",
         "@types/react": "^19.0.0",
         "@types/react-dom": "^19.0.0",
-        "typescript": "^5",
-        "wrangler": "^4.20.5"
+        "typescript": "^5"
     },
     "optionalDependencies": {
         "@tailwindcss/oxide-linux-x64-gnu": "^4.0.0",

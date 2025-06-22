@@ -65,21 +65,21 @@ export default function Accordion_03({
   const containerRef = React.useRef<HTMLDivElement>(null);
   const accordionRefs = React.useRef<Map<string, HTMLDivElement>>(new Map());
   const contentRefs = React.useRef<Map<string, HTMLDivElement>>(new Map());
-  
+
   // Register GSAP plugins
   React.useEffect(() => {
     if (typeof window !== 'undefined') {
       gsap.registerPlugin(ScrollTrigger);
     }
   }, []);
-  
+
   // Set up GSAP animations
-  useGSAP(() => {
+  React.useEffect(() => {
     if (!containerRef.current || data.length === 0) return;
-    
+
     // Clear any existing ScrollTriggers to prevent duplicates
     ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    
+
     // Create a timeline for the accordion animations
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -91,7 +91,7 @@ export default function Accordion_03({
         markers: false, // Set to true for debugging
       }
     });
-    
+
     // Add each accordion content to the timeline
     data.forEach((item, index) => {
       const contentRef = contentRefs.current.get(item.id.toString());
@@ -102,13 +102,13 @@ export default function Accordion_03({
         }, index * 2); // Spacing between triggers
       }
     });
-    
+
     return () => {
       // Clean up ScrollTrigger instances
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
   }, [data]);
-  
+
   // Handle manual click on accordion
   const handleAccordionChange = (value: string) => {
     setOpenItem(value === openItem ? null : value);
@@ -117,9 +117,9 @@ export default function Accordion_03({
   return (
     <div ref={containerRef} className={cn("max-w-4xl mx-auto text-center py-16 h-[300vh]", className)}>
       <h2 className="text-3xl font-bold mb-2">
-        <a 
-          href="https://github.com/ruixenui/ruixen-free-components" 
-          target="_blank" 
+        <a
+          href="https://github.com/ruixenui/ruixen-free-components"
+          target="_blank"
           rel="noopener noreferrer"
           className="hover:text-blue-400 transition-colors"
         >
@@ -135,12 +135,12 @@ export default function Accordion_03({
         onValueChange={handleAccordionChange}
       >
         {data.map((item) => (
-          <Accordion.Item 
-            value={item.id.toString()} 
-            key={item.id} 
+          <Accordion.Item
+            value={item.id.toString()}
+            key={item.id}
             className="mb-6"
           >
-            <div 
+            <div
               ref={(el) => {
                 if (el) accordionRefs.current.set(item.id.toString(), el);
               }}
@@ -152,8 +152,8 @@ export default function Accordion_03({
                   <div
                     className={cn(
                       "relative flex items-center space-x-2 rounded-xl p-2 transition-colors",
-                      openItem === item.id.toString() 
-                        ? "bg-primary/20 text-primary" 
+                      openItem === item.id.toString()
+                        ? "bg-primary/20 text-primary"
                         : "bg-muted hover:bg-primary/10",
                       questionClassName
                     )}
@@ -165,8 +165,8 @@ export default function Accordion_03({
                           item.iconPosition === "right" ? "right-0" : "left-0"
                         )}
                         style={{
-                          transform: item.iconPosition === "right" 
-                            ? "rotate(7deg)" 
+                          transform: item.iconPosition === "right"
+                            ? "rotate(7deg)"
                             : "rotate(-4deg)",
                         }}
                       >
@@ -176,7 +176,7 @@ export default function Accordion_03({
                     <span className="font-medium">{item.question}</span>
                   </div>
 
-                  <span 
+                  <span
                     className={cn(
                       "text-gray-600 dark:text-gray-200",
                       openItem === item.id.toString() && "text-primary"
