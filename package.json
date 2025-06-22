@@ -6,7 +6,10 @@
         "dev": "next dev --turbo",
         "build": "next build",
         "start": "next start",
-        "lint": "next lint"
+        "lint": "next lint",
+        "deploy": "bunx wrangler deploy",
+        "dev:worker": "bunx wrangler dev",
+        "update-bun": "powershell -Command \"(Invoke-WebRequest -Uri 'https://bun.sh/install.ps1' -UseBasicParsing).Content | powershell -Command -\""
     },
     "dependencies": {
         "@gsap/react": "^2.1.2",
