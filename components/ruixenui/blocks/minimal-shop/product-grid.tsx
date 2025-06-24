@@ -55,4 +55,4 @@ export function ProductGrid({ products, onProductSelect }: ProductGridProps) {
             ))}
         </div>
     );
-} 
+}
