@@ -808,7 +808,6 @@ function Checkmark({
                 cy="50"
                 r="40"
                 stroke={color}
-                variants={draw}
                 custom={0}
                 style={{
                     strokeWidth,
@@ -819,7 +818,6 @@ function Checkmark({
             <motion.path
                 d="M30 50L45 65L70 35"
                 stroke={color}
-                variants={draw}
                 custom={1}
                 style={{
                     strokeWidth,
