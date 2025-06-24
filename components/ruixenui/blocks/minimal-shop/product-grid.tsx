@@ -1,4 +1,6 @@
-import { motion } from "motion/react";
+"use client";
+
+import dynamic from "next/dynamic";
 import { type Product } from "./data";
 
 interface ProductGridProps {
@@ -6,11 +8,22 @@ interface ProductGridProps {
     onProductSelect: (product: Product) => void;
 }
 
+// Dynamically import motion
+const LazyMotionDiv = dynamic(
+    async () => {
+        const mod = await import("motion/react");
+        return {
+            default: mod.motion.div,
+        };
+    },
+    { ssr: false }
+);
+
 export function ProductGrid({ products, onProductSelect }: ProductGridProps) {
     return (
         <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-2">
             {products.map((product) => (
-                <motion.div
+                <LazyMotionDiv
                     key={product.id}
                     layoutId={`product-${product.id}`}
                     onClick={() => onProductSelect(product)}
@@ -38,7 +51,7 @@ export function ProductGrid({ products, onProductSelect }: ProductGridProps) {
                             </p>
                         </div>
                     </div>
-                </motion.div>
+                </LazyMotionDiv>
             ))}
         </div>
     );
