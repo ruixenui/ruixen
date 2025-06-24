@@ -1,6 +1,9 @@
-import { motion } from "motion/react";
+"use client";
+
+import dynamic from "next/dynamic";
 import { X } from "lucide-react";
 import { type CartItem } from "./data";
+import { useEffect, useState } from "react";
 
 interface CartDrawerProps {
     cart: CartItem[];
@@ -8,26 +11,37 @@ interface CartDrawerProps {
     onRemoveFromCart: (productId: string) => void;
 }
 
+// Dynamically import motion
+const LazyMotionDiv = dynamic(
+    async () => {
+        const mod = await import("motion/react");
+        return {
+            default: mod.motion.div,
+        };
+    },
+    { ssr: false }
+);
+
 export function CartDrawer({
     cart,
     onClose,
     onRemoveFromCart,
 }: CartDrawerProps) {
-    const total = cart.reduce(
-        (sum, item) => sum + item.price * item.quantity,
-        0
-    );
+    const [total, setTotal] = useState(0);
 
+    useEffect(() => {
+        setTotal(cart.reduce((sum, item) => sum + item.price * item.quantity, 0));
+    }, [cart]);
     return (
         <>
-            <motion.div
+          <LazyMotionDiv
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.5 }}
                 exit={{ opacity: 0 }}
                 className="fixed inset-0 bg-black"
                 onClick={onClose}
             />
-            <motion.div
+            <LazyMotionDiv
                 initial={{ x: "100%" }}
                 animate={{ x: 0 }}
                 exit={{ x: "100%" }}
@@ -90,7 +104,7 @@ export function CartDrawer({
                         </button>
                     </div>
                 </div>
-            </motion.div>
+            </LazyMotionDiv>
         </>
     );
 }
