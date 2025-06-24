@@ -1,7 +1,9 @@
-  main = ".open-next/worker.js"
-  name = "ruixen"
-  compatibility_date = "2025-03-25"
-  compatibility_flags = ["nodejs_compat"]
-  [assets]
-  directory = ".open-next/assets"
-  binding = "ASSETS"
+main = ".open-next/worker.js"
+name = "ruixen"
+compatibility_date = "2025-03-25"
+compatibility_flags = ["nodejs_compat"]
+account_id = "8295318475ba63f2e236f8b35d3682c1"
+
+[assets]
+directory = ".open-next/assets"
+binding = "ASSETS"
