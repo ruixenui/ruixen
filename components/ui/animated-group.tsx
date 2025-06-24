@@ -87,7 +87,7 @@ const presetVariants: Record<
       visible: {
         opacity: 1,
         scale: 1,
-        transition: { type: 'spring', stiffness: 300, damping: 20 },
+        transition: { type: "spring" as const, stiffness: 300, damping: 20 },
       },
     },
   },
@@ -98,7 +98,7 @@ const presetVariants: Record<
       visible: {
         opacity: 1,
         rotateX: 0,
-        transition: { type: 'spring', stiffness: 300, damping: 20 },
+        transition: { type: "spring" as const, stiffness: 300, damping: 20 },
       },
     },
   },
@@ -109,7 +109,7 @@ const presetVariants: Record<
       visible: {
         opacity: 1,
         y: 0,
-        transition: { type: 'spring', stiffness: 400, damping: 10 },
+        transition: { type: "spring" as const, stiffness: 400, damping: 10 },
       },
     },
   },
@@ -120,7 +120,7 @@ const presetVariants: Record<
       visible: {
         opacity: 1,
         rotate: 0,
-        transition: { type: 'spring', stiffness: 200, damping: 15 },
+        transition: { type: "spring" as const, stiffness: 200, damping: 15 },
       },
     },
   },
@@ -131,7 +131,7 @@ const presetVariants: Record<
       visible: {
         opacity: 1,
         rotate: 0,
-        transition: { type: 'spring', stiffness: 300, damping: 8 },
+        transition: { type: "spring" as const, stiffness: 300, damping: 8 },
       },
     },
   },
